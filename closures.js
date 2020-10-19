@@ -23,7 +23,7 @@ function outer() {
 */
   
 // Code Here
-
+let inner = outer()
 
 
 //Once you do that, invoke inner.
@@ -53,7 +53,7 @@ function callFriend(name) {
 
 //Code Here
 
-
+let callJake = callFriend('Jake', 435-555-9248)
 
 ////////// PROBLEM 3 //////////
 
@@ -62,7 +62,13 @@ function callFriend(name) {
 */
 
 //Code Here
-
+function makeCounter(){
+  let num = 0;
+  function plusOne(){
+    return ++num
+  }
+  return plusOne
+}
 
 
 //Uncomment this once you make your function
@@ -87,10 +93,7 @@ function callFriend(name) {
 
 function counterFactory(value) {
   // Code here.
-
-  return {
-
-  };
+  
 }
 
 counter = counterFactory(10);
@@ -113,9 +116,12 @@ function motivation( firstname, lastname ) {
   var welcomeText = "You're doing awesome, keep it up";
 
   // code message function here.
+  function message(){
+    return `${welcomeText}  ${firstname}  ${lastname}.`
+  }
 
   //Uncommment this to return the value of your message function
-  //return message;
+  return message;
 }
 
 var greeting = motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
@@ -143,10 +149,13 @@ var module = (function() {
   // Anything that is being returned is made public and can be invoked from
   // outside our lexical scope
   return {
-    // Code here.
+    publicMethod: function(){
+      return privateMethod();
+    }
   };
 })();
 
+module.publicMethod()
 
 
 ////////// PROBLEM 7 //////////
