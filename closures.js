@@ -92,8 +92,13 @@ function makeCounter(){
 */
 
 function counterFactory(value) {
-  // Code here.
   
+  return {inc: function(){
+    return ++value
+  },
+  dec: function(){
+    return --value
+  }}
 }
 
 counter = counterFactory(10);
@@ -117,7 +122,7 @@ function motivation( firstname, lastname ) {
 
   // code message function here.
   function message(){
-    return `${welcomeText}  ${firstname}  ${lastname}.`
+    return `${welcomeText} ${firstname} ${lastname}.`
   }
 
   //Uncommment this to return the value of your message function
@@ -171,7 +176,12 @@ function secretNumber() {
   var secret = 143;
 
   return {
-    // Code here
+    addToSecret: function(){
+      return ++secret
+    },
+    takeAwayFromSecret: function(){
+      return --secret
+    }
   };
 }
 
